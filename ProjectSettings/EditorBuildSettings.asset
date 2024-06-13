@@ -9,15 +9,18 @@ EditorBuildSettings:
     path: Assets/1.Scene/Main.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/1.Scene/Calc.unity
-    guid: 62473822ecd95244b9d5b84222803b78
-  - enabled: 1
-    path: Assets/1.Scene/Game.unity
-    guid: ce37c614f9dff0641921901d8b5d1f76
-  - enabled: 1
     path: Assets/1.Scene/LoadMenu.unity
     guid: 796f5cedd3eb8a54fbd15c16ae0d1528
   - enabled: 1
     path: Assets/1.Scene/NewGameIntro.unity
     guid: 217bb93a9a8c6fb46a803e073b2548c0
+  - enabled: 1
+    path: Assets/1.Scene/GameIntro.unity
+    guid: ce37c614f9dff0641921901d8b5d1f76
+  - enabled: 1
+    path: Assets/1.Scene/Game.unity
+    guid: 96bef9a8a8c17704d8be74927ff46af6
+  - enabled: 1
+    path: Assets/1.Scene/Calc.unity
+    guid: 62473822ecd95244b9d5b84222803b78
   m_configObjects: {}

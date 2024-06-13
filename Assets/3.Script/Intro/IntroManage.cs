@@ -17,10 +17,6 @@ public class IntroManage : MonoBehaviour
     [SerializeField]
     public Sprite[] introSprite;
     private Coroutine typingCoroutine;
-    [SerializeField]
-    private Image startImg;
-    [SerializeField]
-    private Button startButton;
 
     private string currentText = "";
 
@@ -29,8 +25,6 @@ public class IntroManage : MonoBehaviour
         introImage = GameObject.Find("IntroImg").GetComponent<Image>();
         storyText = GameObject.Find("IntroText").GetComponent<Text>();
         continueButton = GameObject.Find("Canvas").transform.Find("NextBtn").GetComponent<Button>();
-        startImg = GameObject.Find("Canvas").transform.Find("StartImg").GetComponent<Image>();
-        startButton = GameObject.Find("Canvas").transform.Find("StartBtn").GetComponent<Button>();
 
         checkIntroTxt(checkTextNum);
     }
@@ -103,24 +97,16 @@ public class IntroManage : MonoBehaviour
 
     public void GoNext()
     {
-        if (checkTextNum == 6)
+        if (checkTextNum > 5)
         {
-            introImage.gameObject.SetActive(false);
-            storyText.gameObject.SetActive(false);
-            continueButton.gameObject.SetActive(false);
-            startButton.gameObject.SetActive(true);
-            startImg.gameObject.SetActive(true);
+            SceneManager.LoadScene("GameIntro");
         }
         else
         {
+            Debug.Log(checkTextNum);
             checkIntroTxt(checkTextNum);
             typingCoroutine = StartCoroutine(ShowText());
             introImage.sprite = introSprite[checkTextNum - 1];
         }
-    }
-
-    public void GoGame()
-    {
-        SceneManager.LoadScene("Game");
     }
 }

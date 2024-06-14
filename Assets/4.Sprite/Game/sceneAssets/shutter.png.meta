@@ -1,7 +1,40 @@
 fileFormatVersion: 2
 guid: 3fcc446444135a642a7d87f5081b00d2
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -5455651550588569260
+    second: shutter_0
+  - first:
+      213: 4997565737902436668
+    second: shutter_1
+  - first:
+      213: 422044615434094323
+    second: shutter_2
+  - first:
+      213: -2714820224328780180
+    second: shutter_3
+  - first:
+      213: 6865004757234491713
+    second: shutter_4
+  - first:
+      213: -5463762160298043384
+    second: shutter_5
+  - first:
+      213: 4096333367172734575
+    second: shutter_6
+  - first:
+      213: -745120340005606440
+    second: shutter_7
+  - first:
+      213: 9148238831162983670
+    second: shutter_8
+  - first:
+      213: 6347350596593367612
+    second: shutter_9
+  - first:
+      213: -3796858550924345532
+    second: shutter_10
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,7 +74,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -75,9 +108,276 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: shutter_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280.8334
+        width: 370
+        height: 256.16666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 459fbdce1d1a944b0800000000000000
+      internalID: -5455651550588569260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shutter_1
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 1280.8334
+        width: 370
+        height: 256.16666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3176557f8bea5540800000000000000
+      internalID: 4997565737902436668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shutter_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024.8334
+        width: 370
+        height: 256.16666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f6c05677576bd500800000000000000
+      internalID: 422044615434094323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shutter_3
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 1024.8334
+        width: 370
+        height: 256.16666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6636d3c365035ad0800000000000000
+      internalID: -2714820224328780180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shutter_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768.8334
+        width: 370
+        height: 256.16666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14124505475654f50800000000000000
+      internalID: 6865004757234491713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shutter_5
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 768.8334
+        width: 370
+        height: 256.16666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 808d6327341dc24b0800000000000000
+      internalID: -5463762160298043384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shutter_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512.8334
+        width: 370
+        height: 256.16666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6e19ef7e7919d830800000000000000
+      internalID: 4096333367172734575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shutter_7
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 512.8334
+        width: 370
+        height: 256.16666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8db2c03affcc8a5f0800000000000000
+      internalID: -745120340005606440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shutter_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256.83334
+        width: 370
+        height: 256.16666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f487eb5fb215fe70800000000000000
+      internalID: 9148238831162983670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shutter_9
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 256.83334
+        width: 370
+        height: 256.16666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3abfc6ecb1561850800000000000000
+      internalID: 6347350596593367612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shutter_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0.8333435
+        width: 370
+        height: 256.16666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44fffb9b349de4bc0800000000000000
+      internalID: -3796858550924345532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

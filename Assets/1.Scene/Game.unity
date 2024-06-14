@@ -255,6 +255,9 @@ GameObject:
   m_Component:
   - component: {fileID: 123564417}
   - component: {fileID: 123564418}
+  - component: {fileID: 123564419}
+  - component: {fileID: 123564420}
+  - component: {fileID: 123564421}
   m_Layer: 0
   m_Name: StampRed
   m_TagString: Untagged
@@ -328,6 +331,57 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &123564419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123564416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43621ef8544b8524a8c93b774168db9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &123564420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123564416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53de200d7f8d77b4a923a2295ebc080b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStampOver: 0
+--- !u!61 &123564421
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123564416}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.5, y: 1.28}
+    newSize: {x: 1.5, y: 1.28}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 1.28}
+  m_EdgeRadius: 0
 --- !u!1 &214267613
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,6 +511,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32aa74121f9408c48a79e6b09ed35c69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newSprite: {fileID: 0}
+  rightAreaX: 5
 --- !u!61 &281933249
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -627,7 +683,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 375858046}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.55, y: -2.708721, z: -4.4079037}
+  m_LocalPosition: {x: 13.556, y: -2.708721, z: -4.4079037}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 117472468}
@@ -889,7 +945,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 6120d2a4fc7bf2e4085defaa81e2b7e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -927,6 +983,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32aa74121f9408c48a79e6b09ed35c69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newSprite: {fileID: 21300000, guid: 8b3d4ac98c1640f4ebf8b16c7543ffab, type: 3}
+  rightAreaX: 5
 --- !u!61 &595648365
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1712,7 +1770,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 7
+  m_SortingOrder: 9
   m_Sprite: {fileID: 21300000, guid: b31166cd4d1527c41acca9ddc98fec3c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1800,6 +1858,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1340663695}
   - component: {fileID: 1340663696}
+  - component: {fileID: 1340663698}
+  - component: {fileID: 1340663697}
+  - component: {fileID: 1340663699}
   m_Layer: 0
   m_Name: StampGrn
   m_TagString: Untagged
@@ -1873,6 +1934,57 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1340663697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340663694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53de200d7f8d77b4a923a2295ebc080b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStampOver: 0
+--- !u!114 &1340663698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340663694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43621ef8544b8524a8c93b774168db9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &1340663699
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340663694}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.48, y: 1.28}
+    newSize: {x: 1.48, y: 1.28}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.48, y: 1.28}
+  m_EdgeRadius: 0
 --- !u!1 &1395143126
 GameObject:
   m_ObjectHideFlags: 0
@@ -2091,7 +2203,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 9
+  m_SortingOrder: 10
   m_Sprite: {fileID: 5700591946967954217, guid: 7814daab9536d2246b538bcf78ac0ec6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2619,7 +2731,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 7
+  m_SortingOrder: 9
   m_Sprite: {fileID: 21300000, guid: b31166cd4d1527c41acca9ddc98fec3c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2829,6 +2941,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32aa74121f9408c48a79e6b09ed35c69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newSprite: {fileID: 0}
+  rightAreaX: 5
 --- !u!61 &1998595485
 BoxCollider2D:
   m_ObjectHideFlags: 0

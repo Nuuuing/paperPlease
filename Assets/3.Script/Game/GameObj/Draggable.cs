@@ -11,10 +11,19 @@ public class Draggable : MonoBehaviour
     private Camera mainCamera;
     private bool isDragging = false;
 
+    [SerializeField]
+    private Sprite newSprite;
+
+    private bool hasChanged = false;
+    public float rightAreaX = -2f;
+
+    private SpriteRenderer spriteRenderer;
+
     void Start()
     {
         mainCamera = Camera.main;
         originalPosition = transform.position;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void OnMouseDown()
@@ -33,8 +42,29 @@ public class Draggable : MonoBehaviour
 
     void OnMouseUp()
     {
-        isDragging = false;
-        transform.position = originalPosition;
+        if (!hasChanged)
+        {
+            if (transform.position.x > rightAreaX)
+            {
+                ChangeSprite();
+                isDragging = false;
+
+                Debug.Log("111111");
+            }
+            else
+            {
+                Debug.Log(transform.position.x);
+                isDragging = false;
+                transform.position = originalPosition;
+                Debug.Log("222222");
+            }
+        }
+    }
+
+    private void ChangeSprite()
+    {
+        spriteRenderer.sprite = newSprite;
+        hasChanged = true;
     }
 
     Vector3 GetMouseWorldPosition()
@@ -43,5 +73,4 @@ public class Draggable : MonoBehaviour
         mousePoint.z = mainCamera.WorldToScreenPoint(transform.position).z;
         return mainCamera.ScreenToWorldPoint(mousePoint);
     }
-
 }

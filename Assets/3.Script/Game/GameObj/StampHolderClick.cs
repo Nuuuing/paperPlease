@@ -4,13 +4,22 @@ using UnityEngine;
 
 public class StampHolderClick : MonoBehaviour
 {
-    private bool isOver = false;
-
     private StampFrame sf;
+    private bool isFrameOver = false;
+    private StampClick stamp;
 
     private void Awake()
     {
         GameObject.FindObjectOfType<StampFrame>().TryGetComponent(out sf);
+        GameObject.FindObjectOfType<StampClick>().TryGetComponent(out stamp);
+    }
+
+    private void Update()
+    {
+        if (!stamp.isStampOver && isFrameOver && Input.GetMouseButtonDown(0))
+        {
+            onClickSlider();
+        }
     }
 
     public void onClickSlider()
@@ -25,5 +34,15 @@ public class StampHolderClick : MonoBehaviour
             sf.startMove();
             sf.isStampOpen = true;
         }
+    }
+
+    void OnMouseOver()
+    {
+        isFrameOver = true;
+    }
+
+    void OnMouseExit()
+    {
+        isFrameOver = false;
     }
 }

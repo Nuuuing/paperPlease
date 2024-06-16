@@ -13,23 +13,40 @@ public class Draggable : MonoBehaviour
 
     [SerializeField]
     private Sprite newSprite;
+    [SerializeField]
+    private Sprite oldSprite;
+    [SerializeField]
+    private Vector2 changeColliderSize;
+    [SerializeField]
+    private int originalSortingOrder;
 
     private bool hasChanged = false;
-    public float rightAreaX = -2f;
+    public float rightAreaX;
 
     private SpriteRenderer spriteRenderer;
+    private BoxCollider2D boxCollider;
+    private Vector2 originalColliderSize;
+
+    private static int currentSortingOrder = 0;
 
     void Start()
     {
         mainCamera = Camera.main;
         originalPosition = transform.position;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        boxCollider = GetComponent<BoxCollider2D>();
+        originalColliderSize = boxCollider.size;
+        currentSortingOrder = originalSortingOrder;
     }
 
     void OnMouseDown()
     {
         offset = transform.position - GetMouseWorldPosition();
         isDragging = true;
+        if (hasChanged)
+        {
+            BringToFront();
+        }
     }
 
     void OnMouseDrag()
@@ -37,26 +54,31 @@ public class Draggable : MonoBehaviour
         if (isDragging)
         {
             transform.position = GetMouseWorldPosition() + offset;
+
+            if (!hasChanged && transform.position.x > rightAreaX)
+            {
+                ChangeSprite();
+            }
+            else if (hasChanged && transform.position.x <= rightAreaX)
+            {
+                ResetSprite();
+            }
         }
     }
 
     void OnMouseUp()
     {
+        Debug.Log(transform.position.y);
         if (!hasChanged)
         {
             if (transform.position.x > rightAreaX)
             {
-                ChangeSprite();
                 isDragging = false;
-
-                Debug.Log("111111");
             }
             else
             {
-                Debug.Log(transform.position.x);
                 isDragging = false;
                 transform.position = originalPosition;
-                Debug.Log("222222");
             }
         }
     }
@@ -65,6 +87,26 @@ public class Draggable : MonoBehaviour
     {
         spriteRenderer.sprite = newSprite;
         hasChanged = true;
+        ChangeColliderSize(changeColliderSize);
+        spriteRenderer.sortingOrder = 2;
+    }
+
+    private void ResetSprite()
+    {
+        spriteRenderer.sprite = oldSprite; 
+        hasChanged = false;
+        ChangeColliderSize(originalColliderSize);
+        spriteRenderer.sortingOrder = originalSortingOrder;
+    }
+
+    private void ChangeColliderSize(Vector2 newSize)
+    {
+        boxCollider.size = newSize;
+    }
+    private void BringToFront()
+    {
+        currentSortingOrder++;
+        spriteRenderer.sortingOrder = currentSortingOrder;
     }
 
     Vector3 GetMouseWorldPosition()

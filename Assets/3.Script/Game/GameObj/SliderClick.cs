@@ -10,14 +10,30 @@ public class SliderClick : MonoBehaviour
     [SerializeField]
     private Sprite downSlider;
 
+    [SerializeField]
+    private GameObject shutter;
+
     public bool isSliderUp = false;
     private bool isOver = false;
+    private bool isAnimating = false;
 
     private SpriteRenderer spriteRenderer;
+
+    private Animator shutterAni;
 
     private void Awake()
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        shutterAni = shutter.transform.GetComponent<Animator>();
+    }
+
+    private void Start()
+    {
+        isSliderUp = false;
+        shutterAni.SetTrigger("SlideDown");
+        isAnimating = false;
+        spriteRenderer.sprite = downSlider;
+        shutterAni.ResetTrigger("SlideUp");
     }
 
     private void Update()
@@ -30,15 +46,25 @@ public class SliderClick : MonoBehaviour
 
     public void onClickSlider()
     {
+        if (shutterAni == null) return;
+        
+        isAnimating = true;
+
         if (isSliderUp)
         {
-            spriteRenderer.sprite = downSlider;
             isSliderUp = false;
+            shutterAni.SetTrigger("SlideDown");
+            isAnimating = false;
+            spriteRenderer.sprite = downSlider;
+            shutterAni.ResetTrigger("SlideUp");
         }
         else
         {
-            spriteRenderer.sprite = upSlider;
             isSliderUp = true;
+            shutterAni.SetTrigger("SlideUp");
+            spriteRenderer.sprite = upSlider;
+            shutterAni.ResetTrigger("SlideDown");
+            isAnimating = false;
         }
     }
 

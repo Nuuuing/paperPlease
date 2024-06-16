@@ -4,17 +4,29 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
     public bool gameRunning = false;
+    private BoothSpeak booth;
 
-    void Start()
+    public bool portChecked = true;
+    //여권 체크 끝난지 여부
+
+    private void Awake()
     {
-        
+        GameObject.FindObjectOfType<BoothSpeak>().TryGetComponent(out booth);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if(gameRunning)
+        {
+            if (portChecked)
+            {
+                booth.PlayAnimation();
+            }
+            else
+            {
+                booth.StopAnimation();
+            }
+        }
     }
 }

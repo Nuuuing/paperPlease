@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Booth
+  - PassPort
   layers:
   - Default
   - TransparentFX

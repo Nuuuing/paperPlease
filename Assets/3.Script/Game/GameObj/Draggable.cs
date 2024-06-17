@@ -5,14 +5,13 @@ using UnityEngine.EventSystems;
 
 public class Draggable : MonoBehaviour
 {
-
     private Vector3 offset;
     private Vector3 originalPosition;
     private Camera mainCamera;
     private bool isDragging = false;
 
     [SerializeField]
-    private Sprite newSprite;
+    private GameObject[] newObjects;
     [SerializeField]
     private Sprite oldSprite;
     [SerializeField]
@@ -85,10 +84,14 @@ public class Draggable : MonoBehaviour
 
     private void ChangeSprite()
     {
-        spriteRenderer.sprite = newSprite;
+        GameObject newObject = Instantiate(newObjects[0], transform.position, Quaternion.identity);
+        newObject.transform.position = transform.position;
+
         hasChanged = true;
         ChangeColliderSize(changeColliderSize);
         spriteRenderer.sortingOrder = 2;
+
+        gameObject.SetActive(false);
     }
 
     private void ResetSprite()

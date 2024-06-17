@@ -28,11 +28,9 @@ public class StampClick_grn : MonoBehaviour
     void OnMouseOver()
     {
         isStampOver = true;
-        Debug.Log("over!");
     }
     void OnMouseExit()
     {
         isStampOver = false;
-        Debug.Log("exit");
     }
 }

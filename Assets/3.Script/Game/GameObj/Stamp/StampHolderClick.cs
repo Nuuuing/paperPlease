@@ -18,7 +18,7 @@ public class StampHolderClick : MonoBehaviour
 
     private void Update()
     {
-        if (!stamp_grn.isStampOver && !stamp_red.isRedStampOver && isFrameOver && Input.GetMouseButtonDown(0))
+        if (!stamp_grn.isStampOver && !stamp_red.isStampOver && isFrameOver && Input.GetMouseButtonDown(0))
         {
             onClickSlider();
         }

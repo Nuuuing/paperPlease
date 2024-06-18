@@ -18,13 +18,14 @@ public class SliderClick : MonoBehaviour
     private bool isAnimating = false;
 
     private SpriteRenderer spriteRenderer;
-
+    private PersonControll person;
     private Animator shutterAni;
 
     private void Awake()
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         shutterAni = shutter.transform.GetComponent<Animator>();
+        GameObject.FindObjectOfType<PersonControll>().TryGetComponent(out person);
     }
 
     private void Start()
@@ -57,6 +58,8 @@ public class SliderClick : MonoBehaviour
             isAnimating = false;
             spriteRenderer.sprite = downSlider;
             shutterAni.ResetTrigger("SlideUp");
+            //TODO: Ω√∞£ ≈“ ¡÷±‚
+            person.colorToDark();
         }
         else
         {
@@ -65,6 +68,10 @@ public class SliderClick : MonoBehaviour
             spriteRenderer.sprite = upSlider;
             shutterAni.ResetTrigger("SlideDown");
             isAnimating = false;
+            if(person.centeredPerson)
+            {
+                person.resetSprite();
+            }
         }
     }
 

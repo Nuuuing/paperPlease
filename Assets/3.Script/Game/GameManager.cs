@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private CsvReader csvRd;
+    //private CsvReader csvRd;
     private int currentRound = 1;
 
     public bool gameRunning = false;
@@ -13,10 +13,13 @@ public class GameManager : MonoBehaviour
     public bool portChecked = true;
     //여권 체크 끝난지 여부
 
+    PersonControll person;
+
     private void Awake()
     {
-        csvRd = GetComponent<CsvReader>();
+        //csvRd = GetComponent<CsvReader>();
         GameObject.FindObjectOfType<BoothSpeak>().TryGetComponent(out booth);
+        GameObject.FindObjectOfType<PersonControll>().TryGetComponent(out person);
     }
 
     void Update()
@@ -30,6 +33,7 @@ public class GameManager : MonoBehaviour
             else
             {
                 booth.StopAnimation();
+                person.appearPerson();
             }
         }
     }

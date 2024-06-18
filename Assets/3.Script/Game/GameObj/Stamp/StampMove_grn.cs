@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class StampMove_grn : MonoBehaviour
 {
+    public bool isMoveEnd = true;
+
     public void startMove()
     {
+        isMoveEnd = false;
         StartCoroutine(MoveStamp());
     }
 
@@ -32,5 +35,7 @@ public class StampMove_grn : MonoBehaviour
 
             yield return new WaitForSeconds(0.03f);
         }
+
+        isMoveEnd = true;
     }
 }

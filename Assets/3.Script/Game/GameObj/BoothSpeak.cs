@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class BoothSpeak : MonoBehaviour
 {
-    public Sprite originalSprite; // The original sprite
-
+    public Sprite originalSprite; 
     private SpriteRenderer spriteRenderer;
     private Animator animator;
     private bool isSpeak = false;
@@ -23,7 +22,6 @@ public class BoothSpeak : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (isOver && Input.GetMouseButtonDown(0))

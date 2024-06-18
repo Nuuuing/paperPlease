@@ -9,18 +9,32 @@ public class TimeCheck : MonoBehaviour
     public Transform hourHand;
     public Transform minuteHand;
 
+    private Animator clockBlinkAni;
+    private bool isTimerRunning = false;
+
     private void Awake()
     {
         stopwatch = new Stopwatch();
+        clockBlinkAni = GetComponent<Animator>();
+    }
+
+    private void Start()
+    {
+        clockBlinkAni.ResetTrigger("TimeOver");
     }
 
     private void Update()
     {
-        UpdateClock();
+        if (isTimerRunning)
+        {
+            UpdateClock();
+            CheckTime();
+        }
     }
 
     public void startTimer()
     {
+        isTimerRunning = true;
         stopwatch.Start();
     }
 
@@ -44,6 +58,20 @@ public class TimeCheck : MonoBehaviour
         if (minuteHand != null)
         {
             minuteHand.localRotation = Quaternion.Euler(0f, 0f, -minuteAngle);
+        }
+    }
+
+    private void CheckTime()
+    {
+        if(stopwatch.Elapsed.TotalSeconds == 100)
+        {
+            clockBlinkAni.SetTrigger("TimeOver");
+        }
+        if (stopwatch.Elapsed.TotalSeconds >= 150)
+        {
+            stopwatch.Reset();
+            isTimerRunning = false;
+            //TODO: 현재 하는 체크 끝나고 추가플레이 불가
         }
     }
 }

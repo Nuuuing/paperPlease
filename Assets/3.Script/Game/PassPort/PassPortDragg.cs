@@ -82,7 +82,7 @@ public class PassPortDragg : MonoBehaviour
         spriteRenderer.sprite = newSprite;
         hasChanged = true;
         ChangeColliderSize(changeColliderSize);
-        spriteRenderer.sortingOrder = 3;
+        spriteRenderer.sortingOrder = 6;
 
         foreach (Transform child in transform)
         {

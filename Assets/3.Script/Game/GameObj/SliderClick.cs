@@ -58,8 +58,8 @@ public class SliderClick : MonoBehaviour
             isAnimating = false;
             spriteRenderer.sprite = downSlider;
             shutterAni.ResetTrigger("SlideUp");
-            //TODO: Ω√∞£ ≈“ ¡÷±‚
-            person.colorToDark();
+            StartCoroutine(DelayRoutine(0.6f, false));
+            
         }
         else
         {
@@ -70,8 +70,20 @@ public class SliderClick : MonoBehaviour
             isAnimating = false;
             if(person.centeredPerson)
             {
-                person.resetSprite();
+                StartCoroutine(DelayRoutine(0.6f, true));
             }
+        }
+    }
+    public IEnumerator DelayRoutine(float delay , bool reset)
+    {
+        yield return new WaitForSeconds(delay);
+        if(reset)
+        {
+            person.resetSprite();
+        }
+        else
+        {
+            person.colorToDark();
         }
     }
 

@@ -5,27 +5,48 @@ using UnityEngine;
 public class PassportControll : MonoBehaviour
 {
     public bool checkEnd = false;
-    private bool enterAllow = false;
+    public bool enterAllow = false;
+
+    private SpriteRenderer spriteRenderer;
+
+    public bool passportGet = false;
+
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.sortingOrder = 1;
+    }
+
+    public void resetPort()
+    {
+        destroyChild();
+        checkEnd = false;
+    }
+
+    public void getPassPort()
+    {
+        spriteRenderer.sortingOrder = 7;
+        gameObject.transform.position = new Vector3(-6.2f, -2f, 0f);
+        passportGet = true;
+    }
 
     public void setEnterAllowed()
     {
         enterAllow = true;
         checkEnd = true;
     }
+
     public void setEnterDenied()
     {
         enterAllow = false;
         checkEnd = true;
     }
 
-    void Start()
+    public void destroyChild()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
     }
 }

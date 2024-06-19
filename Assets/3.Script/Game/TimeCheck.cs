@@ -34,8 +34,11 @@ public class TimeCheck : MonoBehaviour
 
     public void startTimer()
     {
-        isTimerRunning = true;
-        stopwatch.Start();
+        if(!isTimerRunning)
+        {
+            isTimerRunning = true;
+            stopwatch.Start();
+        }
     }
 
     private void UpdateClock()

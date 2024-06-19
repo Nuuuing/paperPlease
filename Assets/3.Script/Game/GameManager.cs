@@ -12,28 +12,61 @@ public class GameManager : MonoBehaviour
 
     public bool portChecked = true;
     //여권 체크 끝난지 여부
+    private bool isFirst = true;
 
-    PersonControll person;
+    private PersonControll person;
+    private PassportControll passport;
 
     private void Awake()
     {
         //csvRd = GetComponent<CsvReader>();
         GameObject.FindObjectOfType<BoothSpeak>().TryGetComponent(out booth);
         GameObject.FindObjectOfType<PersonControll>().TryGetComponent(out person);
+        GameObject.FindObjectOfType<PassportControll>().TryGetComponent(out passport);
     }
 
     void Update()
     {
-        if(gameRunning)
+        if (gameRunning)
         {
             if (portChecked)
             {
-                booth.PlayAnimation();
+                if (isFirst) //처음에만 그냥 booth animation
+                {
+                    booth.PlayAnimation();
+                }
+
+                //여권 체크
+                if (passport.checkEnd && passport.enterAllow && !person.endMovePerson)
+                {
+                    person.moveRight();
+                    booth.PlayAnimation();
+                }
+                else if (passport.checkEnd && !passport.enterAllow && !person.endMovePerson)
+                {
+                    person.moveLeft();
+                    booth.PlayAnimation();
+                }
             }
             else
             {
                 booth.StopAnimation();
-                person.appearPerson();
+
+                if (isFirst)
+                {
+                    person.appearPerson();
+                    if(person.centeredPerson)
+                    {
+                        isFirst = false;
+                    }
+                }
+
+                if (person.endMovePerson)
+                {
+                    passport.resetPort();
+                    portChecked = false;
+                    person.appearPerson();
+                }
             }
         }
     }

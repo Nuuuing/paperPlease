@@ -5,7 +5,6 @@ using UnityEngine;
 public class PassPortDragg : MonoBehaviour
 {
     private Vector3 offset;
-    //private Vector3 originalPosition;
     private Camera mainCamera;
     private bool isDragging = false;
 
@@ -28,19 +27,20 @@ public class PassPortDragg : MonoBehaviour
     private Rigidbody2D rb;
     bool givePerson = false;
 
-    PassportControll ppc;
-    GameManager gm;
+    private PassportControll passport;
+    private GameManager gm;
+    private PersonMove personMove;
 
     private void Awake()
     {
         mainCamera = Camera.main;
-        //originalPosition = transform.position;
         spriteRenderer = GetComponent<SpriteRenderer>();
         boxCollider = GetComponent<BoxCollider2D>();
         originalColliderSize = boxCollider.size;
         rb = GetComponent<Rigidbody2D>();
-        GameObject.FindObjectOfType<PassportControll>().TryGetComponent(out ppc);
+        GameObject.FindObjectOfType<PassportControll>().TryGetComponent(out passport);
         GameObject.FindObjectOfType<GameManager>().TryGetComponent(out gm);
+        GameObject.FindObjectOfType<PersonMove>().TryGetComponent(out personMove);        
     }
 
     void OnMouseDown()
@@ -51,14 +51,14 @@ public class PassPortDragg : MonoBehaviour
 
     private void OnMouseUp()
     {
-        if (ppc.checkEnd && transform.position.x <= rightAreaX && transform.position.y >= -0.85f)
-        {
+        if (passport.checkEnd && transform.position.x <= rightAreaX && transform.position.y >= -0.85f)
+        {   //여권 돌려줄때
             spriteRenderer.sortingOrder = 4;
-            gm.portChecked = true;
+            passport.checkEnd = true;
+            personMove.endMovePerson = false;
         }
     }
 
-    // Update is called once per frame
     void OnMouseDrag()
     {
         if (isDragging)
@@ -77,7 +77,7 @@ public class PassPortDragg : MonoBehaviour
             }
         }
     }
-    private void ChangeSprite()
+    private void ChangeSprite() //오른쪽 필드에서 sprite detail로 변경
     {
         spriteRenderer.sprite = newSprite;
         hasChanged = true;
@@ -90,7 +90,7 @@ public class PassPortDragg : MonoBehaviour
         }
     }
 
-    private void ResetSprite()
+    private void ResetSprite()  //왼쪽 필드에서 sprite reset
     {
         spriteRenderer.sprite = oldSprite;
         hasChanged = false;
@@ -103,7 +103,7 @@ public class PassPortDragg : MonoBehaviour
         }
     }
 
-    private void ChangeColliderSize(Vector2 newSize)
+    private void ChangeColliderSize(Vector2 newSize)    //스프라이트 바꾸면서 collider 크기 설정
     {
         boxCollider.size = newSize;
     }
@@ -125,13 +125,6 @@ public class PassPortDragg : MonoBehaviour
             rb.gravityScale = 1f;
             rb.angularVelocity = 0f;
             rb.velocity = Vector2.zero;
-        }
-    }
-    private void OnTriggerExit2D(Collider2D coll)
-    {
-        if (givePerson && coll.CompareTag("EndZone"))
-        {
-            gameObject.SetActive(false);
         }
     }
 

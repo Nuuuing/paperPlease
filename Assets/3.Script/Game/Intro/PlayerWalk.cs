@@ -30,7 +30,6 @@ public class PlayerWalk : MonoBehaviour
         if (gameObject.transform.position == targetPosition)
         {
             gameObject.SetActive(false);
-
             bgMv.startMove();
 
             IntroText.gameObject.SetActive(false);

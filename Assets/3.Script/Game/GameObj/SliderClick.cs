@@ -18,14 +18,14 @@ public class SliderClick : MonoBehaviour
     private bool isAnimating = false;
 
     private SpriteRenderer spriteRenderer;
-    private PersonControll person;
     private Animator shutterAni;
+    private PersonColor perColor;
 
     private void Awake()
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         shutterAni = shutter.transform.GetComponent<Animator>();
-        GameObject.FindObjectOfType<PersonControll>().TryGetComponent(out person);
+        GameObject.FindObjectOfType<PersonColor>().TryGetComponent(out perColor);
     }
 
     private void Start()
@@ -48,7 +48,7 @@ public class SliderClick : MonoBehaviour
     public void onClickSlider()
     {
         if (shutterAni == null) return;
-        
+
         isAnimating = true;
 
         if (isSliderUp)
@@ -58,8 +58,7 @@ public class SliderClick : MonoBehaviour
             isAnimating = false;
             spriteRenderer.sprite = downSlider;
             shutterAni.ResetTrigger("SlideUp");
-            StartCoroutine(DelayRoutine(0.6f, false));
-            
+            perColor.colorToDark();
         }
         else
         {
@@ -68,22 +67,7 @@ public class SliderClick : MonoBehaviour
             spriteRenderer.sprite = upSlider;
             shutterAni.ResetTrigger("SlideDown");
             isAnimating = false;
-            if(person.centeredPerson)
-            {
-                StartCoroutine(DelayRoutine(0.6f, true));
-            }
-        }
-    }
-    public IEnumerator DelayRoutine(float delay , bool reset)
-    {
-        yield return new WaitForSeconds(delay);
-        if(reset)
-        {
-            person.resetSprite();
-        }
-        else
-        {
-            person.colorToDark();
+            perColor.resetSprite();
         }
     }
 

@@ -7,11 +7,12 @@ public class BoothSpeak : MonoBehaviour
     public Sprite originalSprite; 
     private SpriteRenderer spriteRenderer;
     private Animator animator;
-    private bool isSpeak = false;
-    public bool isOver = false;
 
-    GameManager gm;
-    TimeCheck time;
+    public bool isSpeak;
+    public bool isOver;
+
+    private GameManager gm;
+    private TimeCheck time;
 
     private void Awake()
     {
@@ -20,6 +21,9 @@ public class BoothSpeak : MonoBehaviour
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+
+        isSpeak = false;
+        isOver = false;
     }
 
     void Update()
@@ -28,6 +32,7 @@ public class BoothSpeak : MonoBehaviour
         {
             gm.portChecked = false;
             time.startTimer();
+            StopAnimation();
         }
     }
 

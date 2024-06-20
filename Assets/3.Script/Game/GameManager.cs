@@ -1,71 +1,58 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     //private CsvReader csvRd;
-    private int currentRound = 1;
+    //private int currentRound = 1;
+    public bool gameRunning;
 
-    public bool gameRunning = false;
     private BoothSpeak booth;
-
-    public bool portChecked = true;
-    //여권 체크 끝난지 여부
-    private bool isFirst = true;
-
-    private PersonControll person;
     private PassportControll passport;
+    private PersonIntrControll personP;
+    private PersonMove perMove;
+
+    //여권 체크 끝난지 여부
+    private bool isFirst;
 
     private void Awake()
     {
         //csvRd = GetComponent<CsvReader>();
         GameObject.FindObjectOfType<BoothSpeak>().TryGetComponent(out booth);
-        GameObject.FindObjectOfType<PersonControll>().TryGetComponent(out person);
         GameObject.FindObjectOfType<PassportControll>().TryGetComponent(out passport);
+        GameObject.FindObjectOfType<PersonIntrControll>().TryGetComponent(out personP);
+        GameObject.FindObjectOfType<PersonMove>().TryGetComponent(out perMove);
+
+
+        isFirst = true;
+        gameRunning = false;
     }
 
-    void Update()
+    private void Update()
     {
         if (gameRunning)
         {
-            if (portChecked)
+            if(passport.givePort)   //여권 돌려줬을때
             {
-                if (isFirst) //처음에만 그냥 booth animation
-                {
-                    booth.PlayAnimation();
-                }
+                //초기화
 
-                //여권 체크
-                if (passport.checkEnd && passport.enterAllow && !person.endMovePerson)
-                {
-                    person.moveRight();
-                    booth.PlayAnimation();
-                }
-                else if (passport.checkEnd && !passport.enterAllow && !person.endMovePerson)
-                {
-                    person.moveLeft();
-                    booth.PlayAnimation();
-                }
             }
             else
             {
-                booth.StopAnimation();
-
-                if (isFirst)
+                if(!booth.isSpeak)
                 {
-                    person.appearPerson();
-                    if(person.centeredPerson)
+                    if (!perMove.isCentered)
                     {
-                        isFirst = false;
+                        personP.personAppear();
                     }
-                }
-
-                if (person.endMovePerson)
-                {
-                    passport.resetPort();
-                    portChecked = false;
-                    person.appearPerson();
+                    else
+                    {
+                        if(!passport.passportGet)
+                        {
+                            passport.getPassPort();
+                        }
+                    }
                 }
             }
         }

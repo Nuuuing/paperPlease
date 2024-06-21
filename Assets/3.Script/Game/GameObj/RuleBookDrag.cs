@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class Draggable : MonoBehaviour
+public class RuleBookDrag : MonoBehaviour
 {
     private Vector3 offset;
     private Vector3 originalPosition;
@@ -11,7 +10,7 @@ public class Draggable : MonoBehaviour
     private bool isDragging = false;
 
     [SerializeField]
-    private Sprite newSprite;
+    private GameObject[] newObjects;
     [SerializeField]
     private Sprite oldSprite;
     [SerializeField]
@@ -84,15 +83,21 @@ public class Draggable : MonoBehaviour
 
     private void ChangeSprite()
     {
-        spriteRenderer.sprite = newSprite;
+        //TODO: 새로운 기본 배경으로 변환하고, 그 위에 글자 추가해서 하위자식으로 넣기
+        //spriteRenderer.sprite =
+
+        //GameObject newObject = Instantiate(newObjects[0], transform.position, Quaternion.identity);
+        //newObject.transform.parent = this.transform;
+
         hasChanged = true;
         ChangeColliderSize(changeColliderSize);
         spriteRenderer.sortingOrder = 6;
+
     }
 
     private void ResetSprite()
     {
-        spriteRenderer.sprite = oldSprite; 
+        spriteRenderer.sprite = oldSprite;
         hasChanged = false;
         ChangeColliderSize(originalColliderSize);
         spriteRenderer.sortingOrder = originalSortingOrder;

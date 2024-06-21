@@ -690,6 +690,7 @@ GameObject:
   - component: {fileID: 281933247}
   - component: {fileID: 281933246}
   - component: {fileID: 281933249}
+  - component: {fileID: 281933248}
   m_Layer: 0
   m_Name: CheckPaper
   m_TagString: Untagged
@@ -762,6 +763,23 @@ Transform:
   m_Father: {fileID: 340219526}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &281933248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281933245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32aa74121f9408c48a79e6b09ed35c69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newSprite: {fileID: 21300000, guid: 3ccd5d7fbfd4a5a45a81335d39486108, type: 3}
+  oldSprite: {fileID: 21300000, guid: 702df962bfdbe0048a54fca8429866d4, type: 3}
+  changeColliderSize: {x: 3, y: 4}
+  originalSortingOrder: 9
+  rightAreaX: -3.5
 --- !u!61 &281933249
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1724,6 +1742,7 @@ GameObject:
   - component: {fileID: 595648363}
   - component: {fileID: 595648362}
   - component: {fileID: 595648365}
+  - component: {fileID: 595648364}
   m_Layer: 0
   m_Name: RecordPaper
   m_TagString: Untagged
@@ -1796,6 +1815,23 @@ Transform:
   m_Father: {fileID: 340219526}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &595648364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595648361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32aa74121f9408c48a79e6b09ed35c69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newSprite: {fileID: 21300000, guid: 8b3d4ac98c1640f4ebf8b16c7543ffab, type: 3}
+  oldSprite: {fileID: 21300000, guid: 6120d2a4fc7bf2e4085defaa81e2b7e8, type: 3}
+  changeColliderSize: {x: 3, y: 4}
+  originalSortingOrder: 7
+  rightAreaX: -3.5
 --- !u!61 &595648365
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2184,7 +2220,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &856321492
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2361,7 +2397,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1012815146
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4135,18 +4171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32aa74121f9408c48a79e6b09ed35c69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newObjects:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  newSprite: {fileID: 0}
   oldSprite: {fileID: 21300000, guid: 8acdd6a43df45d44091e52c266ff0f22, type: 3}
   changeColliderSize: {x: 4.79, y: 3.2}
   originalSortingOrder: 7
@@ -4558,6 +4583,14 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 601eb5547fbe2c844a77ae8accbb0cf6, type: 3}
   - {fileID: 21300000, guid: 4d6037328566be14f8eeb6e372284365, type: 3}
   - {fileID: 21300000, guid: e492bd9c2d9d8c642b588ae845e000b2, type: 3}
+  detailTxts:
+  - {fileID: 8126453401631692262, guid: e9a351c273907a1478fbb09c149e74b3, type: 3}
+  - {fileID: 4718048821097989346, guid: 0f5277001f0122447b92fca15a67c5d2, type: 3}
+  - {fileID: 4430425754577761917, guid: 2582184ce8a87f54e97caf96cb778d0f, type: 3}
+  - {fileID: 5875368542539883497, guid: 61c794872e35d33419871c61c936ad5a, type: 3}
+  - {fileID: 5170399588869865807, guid: 22f767f6d6f8e2342a6c619fe474cc61, type: 3}
+  - {fileID: 8278655301670785416, guid: 406ac0702dda9f14c93caf59ab0e665f, type: 3}
+  - {fileID: 9157941014316247936, guid: 9d0af4f7413000c4ea6c6564fe6843d7, type: 3}
 --- !u!114 &2109738881
 MonoBehaviour:
   m_ObjectHideFlags: 0

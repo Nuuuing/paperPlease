@@ -4085,8 +4085,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1998595483}
   - component: {fileID: 1998595482}
-  - component: {fileID: 1998595484}
   - component: {fileID: 1998595485}
+  - component: {fileID: 1998595484}
   m_Layer: 0
   m_Name: RuleBook
   m_TagString: Untagged
@@ -4168,10 +4168,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1998595481}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32aa74121f9408c48a79e6b09ed35c69, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e2d024073804fb4484389d2f97a343d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newSprite: {fileID: 0}
+  newObjects:
+  - {fileID: 98664001330450641, guid: 3edae246c7d29584f861e37f11758736, type: 3}
+  - {fileID: 5704811719676804287, guid: f78dc1a0a6b461f4a972dbae218185e3, type: 3}
+  - {fileID: 3165154668674608638, guid: 41b30589ad2296848a022d1c7c0f8d16, type: 3}
+  - {fileID: 8462470491797534526, guid: 66bbe12ccdfdca04bba6ec577829edf3, type: 3}
+  - {fileID: 457937893486268849, guid: 34eb878d873a3054abe29ac5b47572b0, type: 3}
+  - {fileID: 8166149315942799728, guid: 522d8754c823176408e6d388aabcea84, type: 3}
+  - {fileID: 935777965701905226, guid: 4ba90c269fece104b85f172398668c9e, type: 3}
+  - {fileID: 4027643102714956771, guid: 674eecca91303674d8e1772c625f4e18, type: 3}
+  - {fileID: 347932720959269344, guid: 716d555a0fd51834594a5b6b1aeda381, type: 3}
+  - {fileID: 6661206397997454450, guid: 265b7bb8c71269e4fb20a6fa40eef2ae, type: 3}
+  - {fileID: 7887254187684177775, guid: 04483b07a688a2a4d9f07916e630a4b3, type: 3}
   oldSprite: {fileID: 21300000, guid: 8acdd6a43df45d44091e52c266ff0f22, type: 3}
   changeColliderSize: {x: 4.79, y: 3.2}
   originalSortingOrder: 7

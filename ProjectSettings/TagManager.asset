@@ -45,3 +45,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: textMesh
+    uniqueID: 3494095749
+    locked: 0

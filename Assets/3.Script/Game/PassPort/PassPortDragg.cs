@@ -13,23 +13,25 @@ public class PassPortDragg : MonoBehaviour
     private Vector2 originalColliderSize;
 
     [SerializeField]
-    private Sprite newSprite;
-    [SerializeField]
-    private Sprite oldSprite;
-    [SerializeField]
     private Vector2 changeColliderSize;
     [SerializeField]
     private int originalSortingOrder;
+    [SerializeField]
+    private Sprite[] passportDetailSprits;
 
     private bool hasChanged = false;
     public float rightAreaX;
 
     private Rigidbody2D rb;
-    bool givePerson = false;
 
     private PassportControll passport;
     private GameManager gm;
     private PersonMove personMove;
+
+    public string text = "Hello world";
+    public Font font;
+    public int fontSize = 32;
+    public Color fontColor = Color.white;
 
     private void Awake()
     {
@@ -38,9 +40,10 @@ public class PassPortDragg : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>();
         originalColliderSize = boxCollider.size;
         rb = GetComponent<Rigidbody2D>();
+
         GameObject.FindObjectOfType<PassportControll>().TryGetComponent(out passport);
         GameObject.FindObjectOfType<GameManager>().TryGetComponent(out gm);
-        GameObject.FindObjectOfType<PersonMove>().TryGetComponent(out personMove);        
+        GameObject.FindObjectOfType<PersonMove>().TryGetComponent(out personMove);
     }
 
     void OnMouseDown()
@@ -54,7 +57,7 @@ public class PassPortDragg : MonoBehaviour
         if (passport.checkEnd && transform.position.x <= rightAreaX && transform.position.y >= -0.85f)
         {   //여권 돌려줄때
             spriteRenderer.sortingOrder = 4;
-            passport.checkEnd = true;
+            passport.givePort = true;
             personMove.endMovePerson = false;
         }
     }
@@ -79,7 +82,7 @@ public class PassPortDragg : MonoBehaviour
     }
     private void ChangeSprite() //오른쪽 필드에서 sprite detail로 변경
     {
-        spriteRenderer.sprite = newSprite;
+        spriteRenderer.sprite = getPassDetailSprite(passport.passType);
         hasChanged = true;
         ChangeColliderSize(changeColliderSize);
         spriteRenderer.sortingOrder = 6;
@@ -90,9 +93,30 @@ public class PassPortDragg : MonoBehaviour
         }
     }
 
+    private Sprite getPassDetailSprite(int type)
+    {
+        switch (type)
+        {
+            case 0:
+                return passportDetailSprits[0];
+            case 2:
+                return passportDetailSprits[2];
+            case 3:
+                return passportDetailSprits[3];
+            case 4:
+                return passportDetailSprits[4];
+            case 5:
+                return passportDetailSprits[5];
+            case 6:
+                return passportDetailSprits[6];
+            default:
+                return passportDetailSprits[1];
+        }
+    }
+
     private void ResetSprite()  //왼쪽 필드에서 sprite reset
     {
-        spriteRenderer.sprite = oldSprite;
+        spriteRenderer.sprite = passport.getCountryPassportSprite(passport.passType);
         hasChanged = false;
         ChangeColliderSize(originalColliderSize);
         spriteRenderer.sortingOrder = originalSortingOrder;

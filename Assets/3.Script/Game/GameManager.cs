@@ -1,4 +1,4 @@
-    using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,7 +24,6 @@ public class GameManager : MonoBehaviour
         GameObject.FindObjectOfType<PersonIntrControll>().TryGetComponent(out personP);
         GameObject.FindObjectOfType<PersonMove>().TryGetComponent(out perMove);
 
-
         isFirst = true;
         gameRunning = false;
     }
@@ -33,24 +32,51 @@ public class GameManager : MonoBehaviour
     {
         if (gameRunning)
         {
-            if(passport.givePort)   //여권 돌려줬을때
+            if (isFirst)
             {
-                //초기화
-
+                booth.PlayAnimation();
+                isFirst = false;
             }
             else
             {
-                if(!booth.isSpeak)
+                if (passport.givePort)   //여권 돌려줬을때
                 {
-                    if (!perMove.isCentered)
+                    //portrait 사람 움직임
+                    if (passport.enterAllow && !perMove.endMovePerson)
                     {
-                        personP.personAppear();
+                        personP.moveRight();
                     }
-                    else
+                    else if (!passport.enterAllow && !perMove.endMovePerson)
                     {
-                        if(!passport.passportGet)
+                        personP.moveLeft();
+                    }
+
+                    if (perMove.endMovePerson) //TODO: 아닐때도 탈것같은데..?
+                    {
+                        booth.PlayAnimation();  //부스 깜빡
+                                                //situation 사람 움직임 flag 수정
+                        personP.resetPerson();  //초상화 초기화
+                        //flag 초기화
+
+                        passport.passportFlagReset();
+                        perMove.portraitMoveFlagReset();
+                    }
+                }
+                else
+                {
+                    if (!booth.isSpeak)
+                    {
+                        //TODO: 유저 situation move
+                        if (!perMove.isCentered)
                         {
-                            passport.getPassPort();
+                            personP.personAppear();
+                        }
+                        else
+                        {
+                            if (!passport.passportGet)
+                            {
+                                passport.getPassPort();
+                            }
                         }
                     }
                 }

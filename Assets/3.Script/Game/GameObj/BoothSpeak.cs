@@ -28,9 +28,8 @@ public class BoothSpeak : MonoBehaviour
 
     void Update()
     {
-        if (isOver && Input.GetMouseButtonDown(0))
+        if (isSpeak && isOver && Input.GetMouseButtonDown(0))
         {
-            gm.portChecked = false;
             time.startTimer();
             StopAnimation();
         }

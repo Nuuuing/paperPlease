@@ -15,7 +15,7 @@ public class SliderClick : MonoBehaviour
 
     public bool isSliderUp = false;
     private bool isOver = false;
-    private bool isAnimating = false;
+    //private bool isAnimating = false;
 
     private SpriteRenderer spriteRenderer;
     private Animator shutterAni;
@@ -32,7 +32,7 @@ public class SliderClick : MonoBehaviour
     {
         isSliderUp = false;
         shutterAni.SetTrigger("SlideDown");
-        isAnimating = false;
+        //isAnimating = false;
         spriteRenderer.sprite = downSlider;
         shutterAni.ResetTrigger("SlideUp");
     }
@@ -49,13 +49,13 @@ public class SliderClick : MonoBehaviour
     {
         if (shutterAni == null) return;
 
-        isAnimating = true;
+        //isAnimating = true;
 
         if (isSliderUp)
         {
             isSliderUp = false;
             shutterAni.SetTrigger("SlideDown");
-            isAnimating = false;
+           // isAnimating = false;
             spriteRenderer.sprite = downSlider;
             shutterAni.ResetTrigger("SlideUp");
             perColor.colorToDark();
@@ -66,7 +66,7 @@ public class SliderClick : MonoBehaviour
             shutterAni.SetTrigger("SlideUp");
             spriteRenderer.sprite = upSlider;
             shutterAni.ResetTrigger("SlideDown");
-            isAnimating = false;
+            //isAnimating = false;
             perColor.resetSprite();
         }
     }

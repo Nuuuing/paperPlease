@@ -4,9 +4,21 @@ using UnityEngine;
 
 public class PersonMove : MonoBehaviour
 {
-    public bool isMoveEnd = true;
-    public bool isCentered = true;
-    public bool endMovePerson = false;
+    public bool isMoveEnd;
+    public bool isCentered;
+    public bool endMovePerson;
+
+    private void Awake()
+    {
+        portraitMoveFlagReset();
+    }
+
+    public void portraitMoveFlagReset()
+    {
+        isMoveEnd = false;
+        isCentered = false;
+        endMovePerson = false;
+    }
 
     public void appearPerson()
     {

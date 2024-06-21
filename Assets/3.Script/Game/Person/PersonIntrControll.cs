@@ -5,17 +5,14 @@ using UnityEngine;
 public class PersonIntrControll : MonoBehaviour
 {
     private PassportControll passport;
-    private SliderClick slider;
     private PersonColor perColor;
     private PersonMove perMove;
-    private GameManager gm;
 
     private void Awake()
     {
         GameObject.FindObjectOfType<PassportControll>().TryGetComponent(out passport);
         GameObject.FindObjectOfType<PersonColor>().TryGetComponent(out perColor);
         GameObject.FindObjectOfType<PersonMove>().TryGetComponent(out perMove);
-        GameObject.FindObjectOfType<SliderClick>().TryGetComponent(out slider);
     }
 
     //TODO: situation person  ¡æ prefabs , interr person ¡æ 1 object

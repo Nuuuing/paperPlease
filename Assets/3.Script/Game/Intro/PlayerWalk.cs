@@ -34,7 +34,6 @@ public class PlayerWalk : MonoBehaviour
 
             IntroText.gameObject.SetActive(false);
             gm.gameRunning = true;
-            gm.portChecked = true;
             DateText.gameObject.SetActive(true);
         }
     } 

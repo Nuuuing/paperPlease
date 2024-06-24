@@ -17,6 +17,7 @@ public class PersonSituControll : MonoBehaviour
 
     public bool goMove;
     public bool moveEnd;
+    private int goWay = 0;
 
     private void Awake()
     {
@@ -37,12 +38,25 @@ public class PersonSituControll : MonoBehaviour
         animator.SetInteger("checkNum", 0);
     }
 
+    public void SetGoWay(int way)
+    {
+        goWay = way;
+        goMove = true;
+    }
+
     private void Update()
     {
-        //∞‘¿” running
-        if(gm.gameRunning && !booth.isSpeak)
+        if (goMove && goWay == 1)
         {
-
+            moveToBooth();
+        }
+        else if(goMove && goWay == 2)
+        {
+            moveToEnd(true);
+        }
+        else if(goMove && goWay == 3)
+        {
+            moveToEnd(false);
         }
     }
 
@@ -58,6 +72,7 @@ public class PersonSituControll : MonoBehaviour
             animator.SetInteger("checkNum", 0);
             gameObject.transform.position = new Vector3(-3.2f, gameObject.transform.position.y, 0f);
             isBooth = true;
+            gm.boothInPerson = true;
         }
     }
 

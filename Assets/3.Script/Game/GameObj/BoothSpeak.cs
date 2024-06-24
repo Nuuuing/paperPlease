@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BoothSpeak : MonoBehaviour
 {
-    public Sprite originalSprite; 
+    public Sprite originalSprite;
     private SpriteRenderer spriteRenderer;
     private Animator animator;
 
@@ -13,11 +13,17 @@ public class BoothSpeak : MonoBehaviour
 
     private GameManager gm;
     private TimeCheck time;
+    private PersonIntrControll personP;
+    private PersonSpawner personSpawner;
+    private PassportControll passport;
 
     private void Awake()
     {
         GameObject.FindObjectOfType<GameManager>().TryGetComponent(out gm);
         GameObject.FindObjectOfType<TimeCheck>().TryGetComponent(out time);
+        GameObject.FindObjectOfType<PersonIntrControll>().TryGetComponent(out personP);
+        GameObject.FindObjectOfType<PersonSpawner>().TryGetComponent(out personSpawner);
+        GameObject.FindObjectOfType<PassportControll>().TryGetComponent(out passport);
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
@@ -32,6 +38,20 @@ public class BoothSpeak : MonoBehaviour
         {
             time.startTimer();
             StopAnimation();
+            personP.changePerson();
+
+            GameObject firstInactivePerson = personSpawner.GetFirstInactivePerson();
+
+            if (firstInactivePerson != null)
+            {
+                firstInactivePerson.SetActive(true);
+                var personSituControll = firstInactivePerson.GetComponent<PersonSituControll>();
+                if (personSituControll != null)
+                {
+                    personSituControll.Initialize();
+                    personSituControll.SetGoWay(1); // Set to move to booth
+                }
+            }
         }
     }
 
@@ -41,6 +61,7 @@ public class BoothSpeak : MonoBehaviour
         {
             animator.SetBool("isSpeak", true);
             isSpeak = true;
+            personP.resetPerson();
         }
     }
 

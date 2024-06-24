@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class PersonSpawner : MonoBehaviour
 {
-    public int poolSize = 10;
+    public int poolSize = 5;
     public GameObject personPrefab;
+    public Transform parentTransform;
 
     private List<GameObject> personPool;
+    private List<GameObject> activePersons;
 
     void Start()
     {
         // Initialize the pool
         personPool = new List<GameObject>();
+        activePersons = new List<GameObject>();
 
         for (int i = 0; i < poolSize; i++)
         {
-            GameObject person = Instantiate(personPrefab);
+            GameObject person = Instantiate(personPrefab, parentTransform);
             person.SetActive(false);
             personPool.Add(person);
         }
@@ -24,15 +27,42 @@ public class PersonSpawner : MonoBehaviour
 
     public void SpawnPerson(Vector3 position)
     {
-        GameObject person = GetPooledPerson();
+        GameObject person = GetPooledObject();
         if (person != null)
         {
             person.transform.position = position;
-            person.GetComponent<PersonIntrControll>();
             person.SetActive(true);
+            activePersons.Add(person);
         }
     }
-    private GameObject GetPooledPerson()
+
+    public GameObject GetPooledObject()
+    {
+        foreach (GameObject obj in personPool)
+        {
+            if (!obj.activeInHierarchy)
+            {
+                return obj;
+            }
+        }
+
+        // Optionally, expand the pool if needed
+        GameObject newObj = Instantiate(personPrefab, parentTransform);
+        newObj.SetActive(false);
+        personPool.Add(newObj);
+        return newObj;
+    }
+
+    public void ReleasePerson(GameObject person)
+    {
+        if (person != null)
+        {
+            person.SetActive(false);
+            activePersons.Remove(person);
+        }
+    }
+
+    public GameObject GetFirstInactivePerson()
     {
         foreach (GameObject person in personPool)
         {
@@ -41,11 +71,11 @@ public class PersonSpawner : MonoBehaviour
                 return person;
             }
         }
-        return null; // If no inactive person found, return null
+        return null;
     }
 
-    public void ReleasePerson(GameObject person)
+    public List<GameObject> GetActivePersons()
     {
-        person.SetActive(false);
+        return new List<GameObject>(activePersons);
     }
 }

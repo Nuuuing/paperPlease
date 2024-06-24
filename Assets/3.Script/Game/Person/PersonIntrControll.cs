@@ -7,15 +7,33 @@ public class PersonIntrControll : MonoBehaviour
     private PassportControll passport;
     private PersonColor perColor;
     private PersonMove perMove;
+    private PassportDataControll passData;
+
+    public GenderC personT;
+    private SpriteRenderer spriteRenderer;
+
+    [SerializeField]
+    private Sprite[] personPics;
 
     private void Awake()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         GameObject.FindObjectOfType<PassportControll>().TryGetComponent(out passport);
         GameObject.FindObjectOfType<PersonColor>().TryGetComponent(out perColor);
         GameObject.FindObjectOfType<PersonMove>().TryGetComponent(out perMove);
+        GameObject.FindObjectOfType<PassportDataControll>().TryGetComponent(out passData);
     }
 
-    //TODO: situation person  → prefabs , interr person → 1 object
+    public void changePerson()
+    {
+        spriteChange();
+    }
+
+    public void spriteChange()
+    {
+        personT = passData.getRandomPersonNumber();
+        spriteRenderer.sprite = personPics[personT.number];
+    }
 
     public void personAppear()  //사람 처음 등장
     {
@@ -36,7 +54,7 @@ public class PersonIntrControll : MonoBehaviour
 
     public void resetPerson()   //여권 돌려주면서 초기화 → person
     {
-        if (perMove.endMovePerson)
+        if(perMove.endMovePerson)
         {
             gameObject.transform.position = new Vector3(-10f, -0.7f, 0f);
             passport.checkEnd = false;

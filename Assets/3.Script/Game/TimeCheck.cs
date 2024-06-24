@@ -11,6 +11,7 @@ public class TimeCheck : MonoBehaviour
 
     private Animator clockBlinkAni;
     private bool isTimerRunning = false;
+    GameManager gm;
 
     private void Awake()
     {
@@ -74,6 +75,7 @@ public class TimeCheck : MonoBehaviour
         {
             stopwatch.Reset();
             isTimerRunning = false;
+            gm.gameRunning = false;
             //TODO: 현재 하는 체크 끝나고 추가플레이 불가
         }
     }

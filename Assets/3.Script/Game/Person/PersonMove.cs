@@ -8,9 +8,12 @@ public class PersonMove : MonoBehaviour
     public bool isCentered;
     public bool endMovePerson;
 
+    GameManager gm;
+
     private void Awake()
     {
         portraitMoveFlagReset();
+        GameObject.FindObjectOfType<GameManager>().TryGetComponent(out gm);
     }
 
     public void portraitMoveFlagReset()
@@ -27,7 +30,7 @@ public class PersonMove : MonoBehaviour
 
     public void moveRight()
     {
-        StartCoroutine(MoveToRight());
+        StopCoroutine(MoveToRight());
     }
 
     public void moveLeft()
@@ -35,54 +38,55 @@ public class PersonMove : MonoBehaviour
         StartCoroutine(MoveToLeft());
     }
 
+
     private void OnDisable()
     {
         endMovePerson = false;
-        StopCoroutine(MoveToLeft());
         StopCoroutine(MoveToFront());
         StopCoroutine(MoveToRight());
+        StopCoroutine(MoveToLeft());
     }
+
 
     private IEnumerator MoveToFront()
     {
         while (gameObject.transform.position.x < -6.2f)
         {
             Vector3 personPosition = gameObject.transform.position;
-            personPosition.x += 1f * 0.008f;
+            personPosition.x += 1f * 0.02f;
             gameObject.transform.position = personPosition;
 
-            yield return new WaitForSeconds(8f);
+            yield return new WaitForSeconds(5f);
         }
         isCentered = true;
     }
 
     private IEnumerator MoveToRight()
     {
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(0.5f);
 
-        while (gameObject.transform.position.x < -2.2f)
+        while (gameObject.transform.position.x < -2.1f)
         {
             Vector3 personPosition = gameObject.transform.position;
-            personPosition.x += 1f * 0.008f;
+            personPosition.x += 1f * 0.02f;
             gameObject.transform.position = personPosition;
 
-            yield return new WaitForSeconds(8f);
-
+            yield return new WaitForSeconds(5f);
         }
         endMovePerson = true;
     }
 
     private IEnumerator MoveToLeft()
     {
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(0.5f);
 
-        while (gameObject.transform.position.x > -10f)
+        while (gameObject.transform.position.x > -11f)
         {
             Vector3 personPosition = gameObject.transform.position;
-            personPosition.x -= 1f * 0.008f;
+            personPosition.x -= 1f * 0.02f;
             gameObject.transform.position = personPosition;
 
-            yield return new WaitForSeconds(8f);
+            yield return new WaitForSeconds(5f);
         }
         endMovePerson = true;
     }

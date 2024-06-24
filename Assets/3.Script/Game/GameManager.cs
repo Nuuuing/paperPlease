@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,9 +13,12 @@ public class GameManager : MonoBehaviour
     private PassportControll passport;
     private PersonIntrControll personP;
     private PersonMove perMove;
+    private PersonSpawner personSpawner;
 
-    //여권 체크 끝난지 여부
+    //flag
     private bool isFirst;
+    public bool boothInPerson;
+    public bool hasStartedMoving;
 
     private void Awake()
     {
@@ -23,9 +27,11 @@ public class GameManager : MonoBehaviour
         GameObject.FindObjectOfType<PassportControll>().TryGetComponent(out passport);
         GameObject.FindObjectOfType<PersonIntrControll>().TryGetComponent(out personP);
         GameObject.FindObjectOfType<PersonMove>().TryGetComponent(out perMove);
+        GameObject.FindObjectOfType<PersonSpawner>().TryGetComponent(out personSpawner);
 
         isFirst = true;
         gameRunning = false;
+        boothInPerson = false;
     }
 
     private void Update()
@@ -41,30 +47,28 @@ public class GameManager : MonoBehaviour
             {
                 if (passport.givePort)   //여권 돌려줬을때
                 {
-                    //portrait 사람 움직임
                     if (passport.enterAllow && !perMove.endMovePerson)
                     {
+                        boothInPerson = false;
                         personP.moveRight();
                     }
                     else if (!passport.enterAllow && !perMove.endMovePerson)
                     {
+                        boothInPerson = false;
                         personP.moveLeft();
                     }
 
-                    if (perMove.endMovePerson) //TODO: 아닐때도 탈것같은데..?
+                    if (perMove.endMovePerson)
                     {
-                        booth.PlayAnimation();  //부스 깜빡
-                                                //situation 사람 움직임 flag 수정
-                        personP.resetPerson();  //초상화 초기화
-                        //flag 초기화
-
+                        booth.PlayAnimation(); // 부스 깜빡
                         passport.passportFlagReset();
+                        passport.setPass = false; // 새 여권 설정 가능하도록 플래그 재설정
                         perMove.portraitMoveFlagReset();
                     }
                 }
                 else
                 {
-                    if (!booth.isSpeak)
+                    if (!booth.isSpeak && boothInPerson)
                     {
                         //TODO: 유저 situation move
                         if (!perMove.isCentered)
@@ -81,6 +85,11 @@ public class GameManager : MonoBehaviour
                     }
                 }
             }
+        }
+        else
+        {
+            if (!isFirst)
+                SceneManager.LoadScene("Ending");
         }
     }
 }

@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/1.Scene/Calc.unity
     guid: 62473822ecd95244b9d5b84222803b78
+  - enabled: 1
+    path: Assets/1.Scene/Ending.unity
+    guid: 99f0265934c0c5d418f3842108079d1f
   m_configObjects: {}

@@ -1,140 +1,262 @@
 {
-    "name" : [
+    "name": [
         {
             "key": 0,
-            "name" : "정서 김"
-        }
-        ,
+            "name": "정서 김"
+        },
         {
-            "key" : 1,
-            "name" : "아름 윤 "
+            "key": 1,
+            "name": "아름 윤 "
         },
         {
             "key": 2,
-            "name" : "한결 문"
-        }
-        ,
-        {
-            "key" : 3,
-            "name" : "아름 윤"
-        }
-    ],
-    "city" : [  
-        
-        {
-            "type" : 0,
-            "name" : "모스크바"
+            "name": "한결 문"
         },
         {
-            "type" : 0,
-            "name" : "레닌그라드"
+            "key": 3,
+            "name": "아름 윤"
         },
         {
-            "type" : 0,
-            "name" : "노보시비르스크"
+            "key": 4,
+            "name": "주헤 심"
         },
         {
-            "type" : 1,
-            "name" : "평양"
+            "key": 4,
+            "name": "경하 박"
         },
         {
-            "type" : 1,
-            "name" : "남포"
+            "key": 4,
+            "name": "정형 석"
         },
         {
-            "type" : 1,
-            "name" : "개성"
+            "key": 5,
+            "name": "재환 이"
         },
         {
-            "type" : 2,
-            "name" : "하노이"
+            "key": 6,
+            "name": "다영 서"
         },
         {
-            "type" : 2,
-            "name" : "호찌민"
+            "key": 7,
+            "name": "문수 고"
         },
         {
-            "type" : 2,
-            "name" : "하이퐁"
+            "key": 8,
+            "name": "수영 남"
         },
         {
-            "type" : 3,
-            "name" : "베이징"
+            "key":9,
+            "name": "봄 성"
         },
         {
-            "type" : 3,
-            "name" : "상하이"
+            "key": 10,
+            "name": "훈 노"
         },
         {
-            "type" : 3,
-            "name" : "광저우"
+            "key": 11,
+            "name": "승헌 제갈"
         },
         {
-            "type" : 4,
-            "name" : "서울"
+            "key": 12,
+            "name": "야영 양"
         },
         {
-            "type" : 4,
-            "name" : "부산"
+            "key": 13,
+            "name": "새벽 황보"
         },
         {
-            "type" : 4,
-            "name" : "광주"
+            "key": 14,
+            "name": "한샘 손"
         },
         {
-            "type" : 5,
-            "name" : "타이베이"
+            "key": 15,
+            "name": "혜성 김"
         },
         {
-            "type" : 5,
-            "name" : "가오슝"
+            "key": 16,
+            "name": "나길 허"
         },
         {
-            "type" : 5,
-            "name" : "타이중"
-        },
-        {
-            "type" : 6,
-            "name" : "울란바토르"
-        },
-        {
-            "type" : 6,
-            "name" : "다르한"
-        },
-        {
-            "type" : 6,
-            "name" : "사인샨다"
+            "key": 17,
+            "name": "주하 조"
         }
     ],
-    "country" : 
-    [
+    "gender" :[
         {
-            "type" : 0,
-            "name" : "쏘베트"
+            "number" : 0,
+            "type" : "MAIL"
         },
         {
-            "type" : 1,
-            "name" : "조선"
+            "number" : 1,
+            "type" : "FEMAIL"
         },
         {
-            "type" : 2,
-            "name" : "웨뜨남"
+            "number" : 2,
+            "type" : "MAIL"
         },
         {
-            "type" : 3,
-            "name" : "중국"
+            "number" : 3,
+            "type" : "FEMAIL"
         },
         {
-            "type" : 4,
-            "name" : "대한민국"
+            "number" : 4,
+            "type" : "MAIL"
         },
         {
-            "type" : 5,
-            "name" : "따이완"
+            "number" : 5,
+            "type" : "MAIL"
         },
         {
-            "type" : 6,
-            "name" : "몽골"
+            "number" : 6,
+            "type" : "MAIL"
+        },
+        {
+            "number" : 7,
+            "type" : "MAIL"
+        },
+        {
+            "number" : 8,
+            "type" : "FEMAIL"
+        },
+        {
+            "number" : 9,
+            "type" : "MAIL"
+        },
+        {
+            "number" : 10,
+            "type" : "FEMAIL"
+        },
+        {
+            "number" : 11,
+            "type" : "FEMAIL"
+        },
+        {
+            "number" : 12,
+            "type" : "FEMAIL"
+        },
+        {
+            "number" : 13,
+            "type" : "MAIL"
+        },
+        {
+            "number" : 14,
+            "type" : "MAIL"
+        }
+    ],
+    "city": [
+        {
+            "type": 0,
+            "name": "모스크바"
+        },
+        {
+            "type": 0,
+            "name": "레닌그라드"
+        },
+        {
+            "type": 0,
+            "name": "노보시비르스크"
+        },
+        {
+            "type": 1,
+            "name": "평양"
+        },
+        {
+            "type": 1,
+            "name": "남포"
+        },
+        {
+            "type": 1,
+            "name": "개성"
+        },
+        {
+            "type": 2,
+            "name": "하노이"
+        },
+        {
+            "type": 2,
+            "name": "호찌민"
+        },
+        {
+            "type": 2,
+            "name": "하이퐁"
+        },
+        {
+            "type": 3,
+            "name": "베이징"
+        },
+        {
+            "type": 3,
+            "name": "상하이"
+        },
+        {
+            "type": 3,
+            "name": "광저우"
+        },
+        {
+            "type": 4,
+            "name": "서울"
+        },
+        {
+            "type": 4,
+            "name": "부산"
+        },
+        {
+            "type": 4,
+            "name": "광주"
+        },
+        {
+            "type": 5,
+            "name": "타이베이"
+        },
+        {
+            "type": 5,
+            "name": "가오슝"
+        },
+        {
+            "type": 5,
+            "name": "타이중"
+        },
+        {
+            "type": 6,
+            "name": "울란바토르"
+        },
+        {
+            "type": 6,
+            "name": "다르한"
+        },
+        {
+            "type": 6,
+            "name": "사인샨다"
+        }
+    ],
+    "country": [
+        {
+            "type": 0,
+            "name": "쏘베트"
+        },
+        {
+            "type": 1,
+            "name": "조선"
+        },
+        {
+            "type": 2,
+            "name": "웨뜨남"
+        },
+        {
+            "type": 3,
+            "name": "중국"
+        },
+        {
+            "type": 4,
+            "name": "대한민국"
+        },
+        {
+            "type": 5,
+            "name": "따이완"
+        },
+        {
+            "type": 6,
+            "name": "몽골"
         }
     ]
 }

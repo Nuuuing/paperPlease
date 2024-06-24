@@ -8,6 +8,8 @@ TagManager:
   - PassPort
   - PersonZone
   - EndZone
+  - NxtBtn
+  - PrevBtn
   layers:
   - Default
   - TransparentFX

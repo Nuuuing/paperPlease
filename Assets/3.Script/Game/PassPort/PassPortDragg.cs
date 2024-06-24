@@ -59,6 +59,10 @@ public class PassPortDragg : MonoBehaviour
             spriteRenderer.sortingOrder = 4;
             passport.givePort = true;
             personMove.endMovePerson = false;
+            foreach (Transform child in transform)
+            {
+                Destroy(child.gameObject);
+            }
         }
     }
 
